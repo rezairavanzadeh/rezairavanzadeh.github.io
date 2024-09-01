@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Reza I.</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        .par {
+            font-family: "IBM Plex Sans" !important;
+            font-size: 20px;
+        }
+        a {
+            font-weight: 600;
+        background: -webkit-linear-gradient( #0099ff 0%, #cc33ff 100%);
+         -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;;
+        }
+        .head {
+            font-family: "IBM Plex Sans";
+            font-size: 30px;
+            margin-left: -10px;
+            font-weight: 500;
+        }
+        .title {
+            font-size: 48px;
+        }
+        span {
+            font-size: 21.5px;
+            font-weight: 700;
+        }
+        .conclusion {
+            padding-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body class="home">
+    <div id="cursor"></div>
+    <div class="wrapper">
+        <section class="speaking">
+            
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title">
+                        Attention Is All You Need: An Overview
+                    </h1>
+                    <p style="margin-top: -5px; margin-bottom: -20px; font-size: 14px;">by Reza Iravanzadeh, 10 min</p>
+                    <p class="par" style="font-size: 16px; margin-bottom: 100px;">To explore the original paper, <a target="_blank" href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf">click here</a>.</p>                 </div>
+            </div>
+            <h1 class="head">
+                Introduction
+            </h1>
+            <div class="row">
+                <div class="col-12">
+                    <p class="par">The paper “Attention Is All You Need” by Vaswani et al. (2017) introduces the Transformer model, 
+                        a groundbreaking architecture that relies entirely on self-attention mechanisms, eliminating the need for recurrence 
+                        and convolutions. This model has revolutionized the field of natural language processing (NLP) and has become the 
+                        foundation for many state-of-the-art models, including BERT and GPT.</p>
+                </div>
+            </div>
+            <h1 class="head">
+                Background
+            </h1>
+            <div class="row">
+                <div class="col-12">
+                    <p class="par">Before the advent of the Transformer, sequence-to-sequence models primarily used recurrent neural networks (RNNs) and their variants, such as Long Short-Term Memory (LSTM) networks 
+                        and Gated Recurrent Units (GRUs). These models, while effective, had several limitations:<br><br>
+
+                        <span>Sequential Processing</span>: RNNs process input sequences one element at a time, which makes parallelization difficult and slows down training.<br><br>
+                        <span>Long-Range Dependencies</span>: RNNs struggle to capture long-range dependencies due to the vanishing gradient problem, where gradients diminish as they are backpropagated through many layers.</p>
+                </div>
+            </div>
+            <h1 class="head">
+                Key Contributions
+            </h1>
+            <div class="row">
+                <div class="col-12">
+                    <p class="par"><span>Self-Attention Mechanism</span>: The core idea of the Transformer is the self-attention mechanism, which allows the model to weigh the importance of different words in a sentence when 
+                        encoding a particular word. This mechanism enables the model to capture long-range dependencies more effectively than RNNs. The self-attention mechanism computes a set of attention weights for each 
+                        word in the input sequence, indicating how much focus should be placed on other words when encoding the current word.<br><br>
+                        <span>Positional Encoding</span>: Since the Transformer does not use recurrence, it introduces positional encodings to retain the order of words in a sequence. These encodings are added to the input
+                         embeddings to provide the model with information about the position of each word. The positional encodings are designed to be easily added to the input embeddings and are generated using sine and 
+                         cosine functions of different frequencies.<br><br>
+                        <span>Multi-Head Attention</span>: The model employs multi-head attention, which allows it to focus on different parts of the sentence simultaneously. This enhances the model’s ability to capture 
+                        various aspects of the input. Each head in the multi-head attention mechanism performs its own self-attention operation, and the results are concatenated and linearly transformed to produce the final output.<br><br>
+                        <span>Feed-Forward Networks</span>: Each layer of the Transformer includes a feed-forward network applied to each position separately and identically. This network consists of two linear transformations 
+                        with a ReLU activation in between. The feed-forward networks provide additional non-linearity and capacity to the model.<br><br>
+                        <span>Layer Normalization and Residual Connections</span>: The Transformer uses layer normalization and residual connections to stabilize and improve the training process. Layer normalization helps to normalize 
+                        the inputs to each layer, while residual connections allow gradients to flow more easily through the network, mitigating the vanishing gradient problem.</p>
+                </div>
+            </div>
+            <h1 class="head">
+                Architecture
+            </h1>
+            <div class="row">
+                <div class="col-12">
+                    <p class="par">The Transformer consists of an encoder and a decoder, each composed of multiple identical layers. The encoder processes the input sequence, while the decoder generates the output sequence.<br><br>
+
+                        <span>Encoder</span>: Each encoder layer has two sub-layers: a multi-head self-attention mechanism and a position-wise feed-forward network. The self-attention mechanism allows the encoder to weigh the importance of 
+                        different words in the input sequence, while the feed-forward network provides additional capacity and non-linearity.<br><br>
+                        <span>Decoder</span>: Each decoder layer has three sub-layers: a multi-head self-attention mechanism, a multi-head attention mechanism over the encoder’s output, and a position-wise feed-forward network. The self-attention 
+                        mechanism in the decoder allows it to focus on different parts of the output sequence generated so far, while the attention mechanism over the encoder’s output allows it to incorporate information from the input sequence.</p>
+                </div>
+            </div>
+            <h1 class="head">
+                Training and Results
+            </h1>
+            <div class="row">
+                <div class="col-12">
+                    <p class="par">The authors trained the Transformer on the WMT 2014 English-to-German and English-to-French translation tasks. The model achieved state-of-the-art results, outperforming existing models while being more efficient in 
+                        terms of training time. The Transformer was able to achieve these results due to its ability to capture long-range dependencies and its parallelizable architecture, which allowed for faster training.</p>
+                </div>
+            </div>
+            <h1 class="head">
+                Impact and Applications
+            </h1>
+            <div class="row">
+                <div class="col-12">
+                    <p class="par">The Transformer has had a profound impact on NLP and beyond. It has become the backbone of many advanced models and applications, including:<br><br>
+
+                        <span>BERT (Bidirectional Encoder Representations from Transformers)</span>: A pre-trained model used for various NLP tasks, such as question answering and sentiment analysis. BERT uses the Transformer encoder to generate contextualized word embeddings, capturing the meaning of words in different contexts.<br><br>
+                        <span>GPT (Generative Pre-trained Transformer)</span>: A model designed for text generation. GPT uses the Transformer decoder to generate coherent and contextually relevant text, making it suitable for tasks like language modeling and text completion.<br><br>
+                        <span>T5 (Text-To-Text Transfer Transformer)</span>: A model that frames all NLP tasks as text-to-text problems. T5 uses the Transformer encoder-decoder architecture to perform tasks such as translation, summarization, and question answering by converting all inputs and outputs to text.</p>
+                </div>
+            </div>
+            <h1 class="head">
+                Conclusion
+            </h1>
+            <div class="row conclusion">
+                <div class="col-12">
+                    <p class="par">The “Attention Is All You Need” paper has fundamentally changed the landscape of NLP by introducing a powerful and efficient model architecture. The Transformer has paved the way for numerous advancements and continues to be a cornerstone of modern NLP research. Its ability to capture long-range dependencies, 
+                        parallelizable architecture, and versatility have made it an indispensable tool in the field.</p>
+                </div>
+            </div>
+    </div>
+    <script src="/index.js" defer></script>
+</body>
+
+</html>
